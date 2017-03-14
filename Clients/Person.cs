@@ -8,9 +8,11 @@ namespace Clients
 {
     class Person
     {
-        private string name = "";
-        private int age;
-        private string sex = "";
+        protected string first_name = "";
+        protected string last_name = "";
+        protected int age;
+        protected string sex = "";
+        protected DateTime birthday;
 
 
     }
