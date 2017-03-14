@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clients
 {
-    class Person
+    class PrefferedClient:Client
     {
-        private string name = "";
-        private int age;
-        private string sex = "";
-
-
     }
 }
