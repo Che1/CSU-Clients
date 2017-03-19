@@ -10,6 +10,7 @@ namespace Clients
     {
         static void Main(string[] args)
         {
+            Client newClient = new Client("Vasyliy", "Shipulin", "M", new DateTime(1994,6,22));
         }
     }
 }

@@ -9,23 +9,28 @@ namespace Clients
 {
     class Client : Person
     {
-        private List<string> salaryHistory;
+        private List<Product> salaryHistory;
         private int IDclient;
         
 
-        public Client(string name, string lastname, int age, string sex, DateTime birthday)
+        public Client(string name, string lastname, string sex, DateTime birthday)
         {
             this.first_name = name;
             this.last_name = lastname;
-            this.age = age;
             this.sex = sex;
             this.birthday = birthday;
+            this.salaryHistory = new List<Product>();
+        }
+
+        public void AddToDatabase()
+        {
+            
         }
 
 
         public void Bying(string item, float price)
         {
-
+            salaryHistory.Add(new Product(item,price));
         }
     }
 }

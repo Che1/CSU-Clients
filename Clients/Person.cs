@@ -8,11 +8,10 @@ namespace Clients
 {
     class Person
     {
-        protected string first_name = "";
-        protected string last_name = "";
-        protected int age;
-        protected string sex = "";
-        protected DateTime birthday;
+        protected string FirstName = "";
+        protected string LastName = "";
+        protected string Sex = "";
+        protected DateTime Birthday;
 
 
     }

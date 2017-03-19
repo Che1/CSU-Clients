@@ -8,5 +8,8 @@ namespace Clients
 {
     class PrefferedClient:Client
     {
+        public PrefferedClient(string name, string lastname, string sex, DateTime birthday) : base(name, lastname, sex, birthday)
+        {
+        }
     }
 }
