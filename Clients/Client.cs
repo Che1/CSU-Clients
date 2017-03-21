@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,31 @@ namespace Clients
         }
 
         //for existing clients - get data from DB via ID
-        public Client(int ID)
+        public Client(int id)
         {
-            this.IDclient = ID;
+            this.IDclient = id;
+            GetDataFromDB();
+        }
+
+        private void GetDataFromDB()
+        {
+            using (SqlConnection connection = new SqlConnection(Program.DBconnectionString))
+            {
+                connection.Open();
+                //Console.WriteLine($"Connected to {connection.Database}");
+                var selectQuerry = $"SELECT * FROM dbo.Clients WHERE id = {IDclient}";
+                SqlCommand command = new SqlCommand(selectQuerry,connection);
+                SqlDataReader outReader = command.ExecuteReader();
+                outReader.Read();
+                IDataRecord record = (IDataReader) outReader;
+                var a = record[0].ToString();
+                var b = record[1];
+                var c = record[2];
+                var d = record[3];
+                var e = record[4].ToString();
+                var f = record[5].ToString();
+                Console.WriteLine($"{a}, {b}, {c}, {d}, {e}, {f}");
+            }
         }
 
         private void AddToDatabase()
@@ -35,7 +58,7 @@ namespace Clients
             using (SqlConnection connection = new SqlConnection(Program.DBconnectionString))
             {
                 connection.Open();
-                Console.WriteLine($"Connected to {connection.Database}");
+               // Console.WriteLine($"Connected to {connection.Database}");
                 string insertQuerry = $"INSERT INTO dbo.Clients VALUES ('{FirstName}', '{LastName}', '{Sex}', CAST('{Birthday.ToString("yyyy-MM-dd")}' AS DATE), 0); ";
                 SqlCommand command = new SqlCommand(insertQuerry, connection);
                 command.ExecuteNonQuery();

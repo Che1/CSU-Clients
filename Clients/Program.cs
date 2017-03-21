@@ -27,7 +27,7 @@ namespace Clients
                 Console.WriteLine("Выберете, что хотите сделать: ");
                 Console.WriteLine("1 - Добавить клиента");
                 Console.WriteLine("2 - Добавить покупку(клиент, ее осущетсвивший, должен быть в базе, и необходимо знать его ID)");
-                Console.WriteLine("3 - Повысить существующего клиента до постоянного\n");
+                Console.WriteLine("3 - Повысить существующего клиента до постоянного"); //Пока просто должна выводить данные по ID клиента
                 Console.WriteLine("4 - Вывести всех клиентов");
                 Console.WriteLine("5 - Вывести все покупки");
                 Console.WriteLine("6 - Выход");
@@ -40,26 +40,32 @@ namespace Clients
                         AddClient();
                         break;
                     case 2:
-                        Console.WriteLine(2);
+                        Console.WriteLine("NotImplementedException");
                         break;
                     case 3:
-                        Console.WriteLine(3);
+                        Promote();
                         break;
                     case 4:
-                        Console.WriteLine(3);
+                        Console.WriteLine("NotImplementedException");
                         break;
                     case 5:
-                        Console.WriteLine(3);
+                        Console.WriteLine("NotImplementedException");
                         break;
                     case 6:
-                        Console.WriteLine(3);
-                        break;
+                        return;
                     default:
                         Console.WriteLine("Неверный ввод");
                         break;
                 }
                 Console.WriteLine("\n\n");
             }
+        }
+
+        private static void Promote()
+        {
+            Console.Write("ID: ");
+            var id = Console.ReadLine();
+            Client promotedClient = new Client(Int32.Parse(id));
         }
 
         private static void AddClient()
@@ -75,10 +81,6 @@ namespace Clients
             var bday = DateTime.Parse(Console.ReadLine());
             Client client = new Client(name, lastName, sex, bday);
 
-        }
-        PrefferedClient PromoteToPreffered(Client subj)
-        {
-            throw new NotImplementedException();
         }
 
 
