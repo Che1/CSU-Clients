@@ -8,8 +8,12 @@ namespace Clients
 {
     class PrefferedClient:Client
     {
-        public PrefferedClient(string name, string lastname, string sex, DateTime birthday) : base(name, lastname, sex, birthday)
+        private double spendMoney;
+        private double discount;
+
+        public PrefferedClient(string name, string lastname, string sex, DateTime birthday, List<Product> salaryProducts ) : base(name, lastname, sex, birthday)
         {
+
         }
     }
 }
